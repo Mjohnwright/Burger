@@ -1,38 +1,81 @@
-<h1>Eat Da Burger!</h1>
+<div class="container bg">
+	
+	<div class="row">
+		<div id = "topPart">
 
-<h2>Eat Da Burger!</h2>
+		
+	    <div class="center col-sm-12">
+	        <h1>Eat-Da-Burger App</h1>
+	        <p></p>
+	    </div>
+			</div>
+  	</div>
+	<!-- end .row -->
 
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+	<div class="row">
+	    <div class="col-sm-6">
 
-<h2>Burgers!</h2>
+			<br>
+			<h2>Burgers Available To Eat!</h2>
 
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+			<ul>
+			  {{#each burgers}}
+			    {{#unless this.devoured}}
+			      <li>
+			      	{{this.id}}
+			        {{this.burger_name}}
 
-<h2>Add a Burger</h2>
-<form class="create-form">
+			        <form action="/{{this.id}}?_method=PUT" method="POST">
+			          <input type="hidden" name="devoured" value="true">
+			          <button class="btn-primary" type="submit">Devour It!</button>
+			        </form>
 
-  <div class="form-group">
-    <label for="burger">Burger Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
+			      </li>
+			    {{/unless}}
+			  {{/each}}
+			</ul>
 
-  <div class="form-group">
-    <label for="devour">Devour It?</label><br>
-    <input type="radio" name="devour" value="1" checked> Devoured!<br>
-    <input type="radio" name="devour" value="0"> Ready to Be Eaten!
-  </div>
+	    </div>
 
-  <button type="submit">Add a burger you want to eat!</button>
-</form>
+	    <div class="col-sm-6">
+				<br>
+			<h2>Burgers That Have Been Eaten!</h2>
+			
+			  {{#each burgers}}
+			    {{#if this.devoured}}
+			      <li>
+			      	{{this.id}}
+			        {{this.burger_name}}
+
+			      </li>
+			    {{/if}}
+			  {{/each}}
+			
+	    </div>
+
+  	</div>
+	<!-- end .row -->
+
+	<div class="row">
+		<div id = "submitArea">
+
+		
+	    <div class="center col-sm-12">
+
+			<h2>Add A Burger!</h2>
+
+			<form class="create-update-form" action="/" method="POST">
+
+			  <div class="form-group">
+			    <p>Enter a burger you want to devour and click Submit.</p>
+			    <input type="text" id="ca" name="burger_name">
+			  </div>
+			  
+			  <button class="btn-primary" type="submit">Submit</button>
+			</form>
+
+	    </div>
+	
+  	</div>
+</div>
+</div>
