@@ -1,5 +1,5 @@
 body { 
-    background-image: url('/image/burger.jpg') ;
+    /* background-image: url('../image/burger.jpg') ; */
 	background-position: center center;
 	background-repeat:  no-repeat;
 	background-attachment: fixed;
@@ -9,12 +9,17 @@ body {
 
 #topPart{
     /* align-content: center; */
-    margin-left: 100px;
+    text-align: center;
+}
+
+#centerPart{
+    text-align: center;
+
 }
 
 #submitArea{
     /* align-content: center; */
-    margin-left: 100px;
+    text-align: center;
 }
 
 
