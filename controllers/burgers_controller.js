@@ -6,8 +6,10 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-  burger.selectAll(function(data) {
+
+// LOADS ALL the burgers in the DB
+router.get("/", function (req, res) {
+  burger.selectAll(function (data) {
     var hbsObject = {
       burgers: data
     };
@@ -16,46 +18,56 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/api/burgers", function(req, res) {
-  burger.insertOne([
-    "name", "devoured"
-  ], [
-    req.body.name, req.body.devoured
-  ], function(result) {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
+
+// ADDS a burger to the DB
+router.post("/api/burgers", function (req, res) {
+  console.log("POST FIRED ON BACK END!")
+  console.log('REQ: ' + req.body.burger_name);
+  burger.insertOne(
+    req.body.burger_name,
+    function (result) {
+      console.log('RESULT IN ADD BURGER: ' + result)
+      // Send back the ID of the new quote
+      //res.json({ id: result.insertId });
+      res.redirect('/')
+    });
+});
+
+//UPDATES 1 burger from list to devoured
+router.put("/burger/update/:id", function (req, res) {
+  // console.log('PUT BACKEND FIRED!')
+  // console.log('REQ: ' + req.params.id); //HELP
+  var condition = "id = " + req.params.id; //HELP
+  console.log(req.body.devoured);
+  console.log("39 condition", condition); //THIS IS PRINTING A STRING
+
+  var eaten = " devoured = 1 ";
+  burger.updateOne(
+    "burgers", eaten, condition, function (data) {
+    res.redirect('/');
   });
 });
 
-router.put("/api/burgers/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
-
-  burger.updateOne({
-    devoured: req.body.devoured
-  }, condition, function(result) {
-    if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
+router.put('/update/:id', function(req, res){
+  burger.updateOne([req.body.devoured], [req.params.id], function(){
+    res.redirect('/');
   });
 });
 
-router.delete("/api/burgers/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+// router.delete("/api/burgers/:id", function (req, res) {
+//   var condition = "id = " + req.params.id;
 
-  burger.delete(condition, function(result) {
-    if (result.affectedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
-});
+//   burger.delete(condition, function (result) {
+//     if (result.affectedRows == 0) {
+//       // If no rows were changed, then the ID must not exist, so 404
+//       return res.status(404).end();
+//     } else {
+//       res.status(200).end();
+//     }
+//   });
+// });
+
+
 
 // Export routes for server.js to use.
 module.exports = router;

@@ -1,7 +1,7 @@
 <h1>Burgers! Burgers! Burgers!</h1>
 
 
-<h2>Burger Menu!</h2>
+<h2>Burgers To DEVOUR!</h2>
 
 <ul>
 	{{!-- each burger or burgers --}}
@@ -10,9 +10,9 @@
 			<li>
 				{{this.id}} {{this.burger_name}}
 
-				<form action="/{{this.id}}?_method=PUT" method="POST">
-					<input type="hidden" name="devoured" value="true">
-					<button class="btn-primary" type="submit">Devour It!</button>
+				<form action="/burger/update/{{this.id}}?_method=PUT" method="POST">
+					<button type="submit" data-burger-devoured= {{this.devoured}} data-burger-id= {{this.id}} class="btn-primary"
+					 id="change-devoured">Devour It</button>
 				</form>
 
 			</li>
@@ -21,7 +21,7 @@
 </ul>
 
 
-<h2>Burgers Eaten!</h2>
+<h2>Burgers Devoured! YUMMY!</h2>
 {{#each burgers}}
 	{{#if this.devoured}}
 		<li>
@@ -35,13 +35,12 @@
 <h2>Add a Burger</h2>
 
 
-<form class="create-update-form" action="/" method="POST">
+<form class="create-update-form" action="/api/burgers" method="POST">
 
 	<div class="form-group">
 		<p>Enter a burger you want to order and click the Submit Order button.</p>
-		<input type="text" id="ca" name="burger_name">
+		<input type="text" id="burg" name="burger_name">
 	</div>
 
 	<button class="btn-primary" type="submit">Submit Order</button>
 </form>
-
