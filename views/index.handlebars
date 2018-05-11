@@ -1,45 +1,52 @@
 <div class="container bg">
 
 	<div class="row">
-		<div class="center col-sm-12">
-			<img src="assets/img/burger.png" alt="Eat-Da-Burger App">
-			<h2>Burgers! Burgers! Burgers!</h2>
+		<div class="top-section">
+			<div class="center col-sm-12">
+				<img src="assets/image/burger1.jpg" style = alt="burger">
+				<h2>Burgers! Burgers! Burgers!</h2>
 
-			<p></p>
+				<p></p>
+			</div>
 		</div>
 	</div>
 	<!-- end .row -->
 	{{!-- *************************************************************************** --}}
 
 	<div class="row">
-		<div class="col-sm-6">
-			<h2>Burgers To DEVOUR!</h2>
-			<ul>
-				{{#each burgers}}
-					{{#if devoured}}
-						{{> burgers/burger-block devoured=false}} {{/if}}
-				{{/each}}
-			</ul>
+		<div class="middle-section">
+
+			<div class="col-sm-6">
+				<h2>Burgers To DEVOUR!</h2>
+				<li>
+					{{#each burgers}}
+						{{#if devoured}}
+							{{> burgers/burger-block devoured=false}} {{/if}}
+					{{/each}}
+				</li>
+			</div>
+
+			<div class="col-sm-6">
+				<h2>Burgers devoured</h2>
+				<ul>
+					{{#each burgers}}
+						{{#unless devoured}}
+							<li>
+								{{id}}. {{burger_name}}
+							</li>
+						{{/unless}}
+					{{/each}}
+				</ul>
+			</div>
 		</div>
 
-		<div class="col-sm-6">
-			<h2>Burgers devoured</h2>
-			<ul>
-				{{#each burgers}}
-					{{#unless devoured}}
-						<li>
-							{{id}}. {{burger_name}}
-						</li>
-					{{/unless}}
-				{{/each}}
-			</ul>
-		</div>
 	</div>
 	{{!-- end row --}}
 	{{!-- ***************************************************************************** --}}
 
 
 	<div class="row">
+		<div class="lower-section">
 		<div class="center col-sm-12">
 			<h2>Add a Burger</h2>
 			<form class="create-form">
@@ -50,6 +57,7 @@
 					<button class="button is-danger" type="submit ">Add Burger</button>
 				</div>
 			</form>
+		</div>
 		</div>
 	</div>
 	<!-- end .row -->

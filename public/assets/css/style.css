@@ -1,27 +1,27 @@
 body { 
-    /* background-image: url('../image/burger.jpg') ; */
+    /* background-image: url('../image/burger1.jpg') ; */
 	background-position: center center;
 	background-repeat:  no-repeat;
 	background-attachment: fixed;
 	background-size:  cover;
-	/* background-color: #000000;   */
+	background-color: yellow;  
 }
 
-#topPart{
-    /* align-content: center; */
+.top-section, .middle-section, .lower-section{
+    align-content: center;
     text-align: center;
 }
 
-#centerPart{
-    text-align: center;
+.middle-section {
+    /* background-color: yellow;  */
+    align-content: auto;
 
 }
 
-#submitArea{
-    /* align-content: center; */
-    text-align: center;
+#label {
+    /* font-color: black; */
+    color: black;
 }
-
 
 
 /* background-image: url('images/slides/background.jpg'); */
