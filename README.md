@@ -1,5 +1,4 @@
-# :hamburger: Eat Da Burger!
-<h1> Burger! Burger! Burger! </h1>
+# :hamburger: Burger! Burger! Burger!
 
 ###Overview
 
