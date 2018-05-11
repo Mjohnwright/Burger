@@ -6,7 +6,7 @@ var connection = require("../config/connection.js");
 // In order to write the query, we need 3 question marks.
 // The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
 // ["?", "?", "?"].toString() => "?,?,?";
-function printQuestionMarks(num) {
+var printQuestionMarks = num => {
   var arr = [];
 
   for (var i = 0; i < num; i++) {
@@ -17,7 +17,7 @@ function printQuestionMarks(num) {
 }
 
 // Helper function to convert object key/value pairs to SQL syntax
-function objToSql(ob) {
+var objToSql = (ob) => {
   var arr = [];
 
   // loop through the keys and push the key/value as a string int arr
@@ -39,21 +39,23 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-// Object for all our SQL statement functions.
-//cb is Call Back function
+//Object-relational mapping
+//The query templates to with custom names
 var orm = {
-  
-  selectAll: function(tableInput, cb) {
+
+  //***************************************************** */
+  selectAll: (tableInput, callback) => {
     var queryString = "SELECT * FROM " + tableInput + ";";
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
       }
-      cb(result);
+      callback(result);
     });
   },
-  
-  insertOne: function(table, cols, vals, cb) {
+
+  //***************************************************** */
+  insertOne: (table, cols, vals, callback) => {
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -63,50 +65,35 @@ var orm = {
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
 
-    console.log('ORM QUERY: '+queryString);
+    console.log(queryString);
 
-    connection.query(queryString, vals, function(err, result) {
+    connection.query(queryString, vals, (err, result) => {
       if (err) {
         throw err;
       }
 
-      cb(result);
+      callback(result);
     });
+
   },
-  
-  // An example of objColVals would be {name: burger, devoured: true}
-  updateOne: function(table, objColVals, condition, cb) {
+
+  //***************************************************** */
+  updateOne: (table, objColVals, condition, callback) => {
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";
-    queryString += objColVals; 
+    queryString += objToSql(objColVals);
     queryString += " WHERE ";
-    queryString += condition; 
+    queryString += condition;
 
-        console.log(queryString);
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
+    connection.query(queryString, (err, results) => {
+      if (err) throw err;
 
-      cb(result);
+      callback(results);
+
     });
-  },
-  
-  // delete: function(table, condition, cb) {
-  //   var queryString = "DELETE FROM " + table;
-  //   queryString += " WHERE ";
-  //   queryString += condition;
+  }
 
-  //   connection.query(queryString, function(err, result) {
-  //     if (err) {
-  //       throw err;
-  //     }
+}
 
-  //     cb(result);
-  //   });
-  // }
-};
-
-// Export the orm object for the model (burger.js).
 module.exports = orm;
