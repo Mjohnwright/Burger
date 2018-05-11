@@ -3,10 +3,10 @@
 ###Overview
 
 A Node, Express, Handlebars, and MySQL burger app that lets users input the names of burgers they'd like to eat... and then devour them! Please check out the launched app on Heroku here: <strong> https://ancient-reef-11912.herokuapp.com/</strong>
-<br>
+
 ###Screenshot
-<br>
-	<img src="public/assets/image/burger_screen_shot.png"  style="width:600px;height:540px;" alt="burger_screen_shot">
+
+	<img src="public/assets/image/burger_screen_shot.png"  style="width:500px;height:400px;" alt="burger_screen_shot">
 
 ### Functionality
 Using an home-grown ORM, the app has 3 basic functions...
