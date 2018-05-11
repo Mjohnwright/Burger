@@ -3,7 +3,7 @@
 ### Overview
 
 A Node, Express, Handlebars, and MySQL burger app that lets users input the names of burgers they'd like to eat... and then devour them! Please check out the launched app on Heroku [here](https://ancient-reef-11912.herokuapp.com/)
-This is [an example](http://www.example.com/) inline link.
+
 ### Functionality
 Using an home-grown ORM, the app has 3 basic methods:
   1. <strong>GET</strong> all entries from the MySQL database and display them to the DOM using Handlebars.
