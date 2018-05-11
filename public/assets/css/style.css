@@ -23,5 +23,9 @@ body {
     color: black;
 }
 
+#burger-photo{
+    margin-top: 10px;
+}
+
 
 /* background-image: url('images/slides/background.jpg'); */
