@@ -18,17 +18,17 @@
 
 			<div class="col-sm-6">
 				<h2>Burgers To DEVOUR!</h2>
-				<li>
+				
 					{{#each burgers}}
 						{{#if devoured}}
 							{{> burgers/burger-block devoured=false}} {{/if}}
 					{{/each}}
-				</li>
+				
 			</div>
 
 			<div class="col-sm-6">
 				<h2>Burgers devoured</h2>
-				<ul>
+				
 					{{#each burgers}}
 						{{#unless devoured}}
 							<li>
@@ -36,7 +36,7 @@
 							</li>
 						{{/unless}}
 					{{/each}}
-				</ul>
+				
 			</div>
 		</div>
 
