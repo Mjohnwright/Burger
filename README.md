@@ -15,5 +15,6 @@ Using an home-grown ORM, the app has 3 basic functions...
     * re-routes the webpage back to the index, where the burger is now ready to be eaten column (via Handlebars)
 
 ### Screenshot
+* ![Full Size](public/assets/image/burger_screen_shot.png)
 	<img src="public/assets/image/burger_screen_shot.png"  style="width:500px;height:400px;" alt="burger_screen_shot">
 
