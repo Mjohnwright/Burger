@@ -12,7 +12,7 @@ body {
 }
 
 .middle-section {
-    align-content: auto;
+    /* align-content: auto; */
 
 }
 
@@ -32,7 +32,7 @@ body {
 
 li {
     padding: 4px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 
