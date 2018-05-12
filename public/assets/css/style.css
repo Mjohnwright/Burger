@@ -7,9 +7,8 @@ body {
 	background-color: yellow;  
 }
 
-.top-section, .middle-section, .lower-section{
-    align-content: center;
-    text-align: center;
+.top-section, .lower-section{
+    text-align: center; 
 }
 
 .middle-section {
@@ -25,6 +24,15 @@ body {
 
 #burger-photo{
     margin-top: 10px;
+}
+
+#devour {
+    /* text-align: center; */
+}
+
+li {
+    /* text-align:center; */
+    padding: 4px;
 }
 
 

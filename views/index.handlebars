@@ -1,10 +1,10 @@
 <div class="container bg">
-<br>
+	<br>
 	<div class="row">
 		<div class="top-section">
 			<div class="center col-sm-12">
 				<br>
-				<img src="assets/image/burger1.jpg" id ="burger-photo" style="width:400px;height:360px;" alt="burger">
+				<img src="assets/image/burger1.jpg" id="burger-photo" style="width:400px;height:360px;" alt="burger">
 				<h2>Burgers! Burgers! Burgers!</h2>
 
 				<p></p>
@@ -16,20 +16,26 @@
 
 	<div class="row">
 		<div class="middle-section">
+								<div class="col-sm-4 col-sm-offset-1">
 
-			<div class="col-sm-6">
-				<h2>Burgers To DEVOUR!</h2>
-				
+					{{!-- <h2>Burgers To DEVOUR!</h2> --}}
+
+				<div id="devour">
+
 					{{#each burgers}}
 						{{#if devoured}}
 							{{> burgers/burger-block devoured=false}} {{/if}}
 					{{/each}}
-				
+				</div>
+
 			</div>
 
-			<div class="col-sm-6">
-				<h2>Burgers devoured</h2>
-				
+			<div class="col-sm-4 col-sm-offset-2">
+
+				<div id="devoured">
+
+					{{!-- <h2>Burgers devoured</h2> --}}
+
 					{{#each burgers}}
 						{{#unless devoured}}
 							<li>
@@ -37,30 +43,35 @@
 							</li>
 						{{/unless}}
 					{{/each}}
-				
+
+				</div>
+				</div>
+				</div>
+	</div>
+
+			
+
+		
+		
+		{{!-- end row --}}
+		{{!-- ***************************************************************************** --}}
+
+
+		<div class="row">
+			<div class="lower-section">
+				<div class="center col-sm-12">
+					<h2>Add a Burger</h2>
+					<form class="create-form">
+
+						<div class="field">
+							<label class="label" id="label" for="burger">Burger Name:</label>
+							<input type="text" id="burger" name="name" class="input" required>
+							<button class="button is-danger" type="submit ">Add Burger</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
+		<!-- end .row -->
 
 	</div>
-	{{!-- end row --}}
-	{{!-- ***************************************************************************** --}}
-
-
-	<div class="row">
-		<div class="lower-section">
-		<div class="center col-sm-12">
-			<h2>Add a Burger</h2>
-			<form class="create-form">
-
-				<div class="field">
-					<label class="label" id="label" for="burger">Burger Name:</label>
-					<input type="text" id="burger" name="name" class="input" required>
-					<button class="button is-danger" type="submit ">Add Burger</button>
-				</div>
-			</form>
-		</div>
-		</div>
-	</div>
-	<!-- end .row -->
-
-</div>
