@@ -11,7 +11,7 @@ Using an home-grown ORM, the app has 3 basic methods:
     * hits a route in Express to change its "devoured" status in the MySQL database
     * re-routes the webpage back to the index, where the burger is now in the devoured column (via Handlebars)
   3. <strong>POST</strong> a new burger using the "Place Order" form, which...
-    * hits a rout in Express to insert a new burger into the MySQL database
+    * hits a route in Express to insert a new burger into the MySQL database
     * re-routes the webpage back to the index, where the burger is now ready to be eaten column (via Handlebars)
 
 ### Screenshot
