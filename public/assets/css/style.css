@@ -12,13 +12,11 @@ body {
 }
 
 .middle-section {
-    /* background-color: yellow;  */
     align-content: auto;
 
 }
 
 #label {
-    /* font-color: black; */
     color: black;
 }
 
@@ -26,14 +24,9 @@ body {
     margin-top: 10px;
 }
 
-#devour {
-    /* text-align: center; */
-}
 
 li {
-    /* text-align:center; */
     padding: 4px;
 }
 
 
-/* background-image: url('images/slides/background.jpg'); */
