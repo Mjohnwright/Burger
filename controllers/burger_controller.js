@@ -2,7 +2,6 @@
 
 var express = require("express");
 var router = express.Router();
-
 var burger = require("../models/burger");
 
 
@@ -10,14 +9,14 @@ var burger = require("../models/burger");
 
 
 //***************************************************** */
-// LOADS ALL the burgers in the DB
+// LOADS ALL the burgers FROM the DB to DOM
 router.get("/", (req, res) => {
     burger.all(data => {
         var hbsObject = {
-            burgers: data
+            burgers: data //burger is the database and data is what is inside the db
         };
         console.log(hbsObject);
-        res.render("index", hbsObject);
+        res.render("index", hbsObject); //index is the name of the page and hbsObject is db object
     })
 });
 

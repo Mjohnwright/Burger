@@ -14,6 +14,9 @@ Using an home-grown ORM, the app has 3 basic methods:
     * hits a route in Express to insert a new burger into the MySQL database
     * re-routes the webpage back to the index, where the burger is now ready to be eaten column (via Handlebars)
 
+### Link to App
+* <strong>[Burger! Burger! Burger!](https://mjohnwright.github.io/Burger/)</strong>
+
 ### Screenshot
 ![Full Size](public/assets/image/burger_screen_shot.png)
 
